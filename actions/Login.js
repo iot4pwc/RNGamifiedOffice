@@ -25,11 +25,13 @@ const login = (userName, passWord, checked) => {
 			if (response.status === 200) {
 				userName = checked? userName : '';
 				passWord = checked? passWord : '';
+
 				setItem(UserInfo.userName, userName);
-				setItem(UserInfo.passWord, passWord);					
+				setItem(UserInfo.passWord, passWord);
+				setItem(UserInfo.checked, checked ? 'true' : 'false');
 				dispatch(NavigationActions.navigate({ routeName: 'Game' }));
 			}
-		});		
+		});
 	}
 }
 

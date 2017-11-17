@@ -12,5 +12,6 @@ export const HOST_CHECKIN_COLOR = '#3a87ad';
 const UserInfoPrefix = '@UserInfo:';
 export const UserInfo = {
 	userName: `${UserInfoPrefix}userName`,
-	passWord: `${UserInfoPrefix}passWord`
+	passWord: `${UserInfoPrefix}passWord`,
+	checked: `${UserInfoPrefix}checked`
 }

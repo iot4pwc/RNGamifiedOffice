@@ -28,10 +28,11 @@ class Login extends React.Component {
     
     const userInfoP = fetchUserInfo();
     userInfoP.then(userInfo => {
+      console.log(userInfo);
       this.setState({
-        ...this.state,
         userName: userInfo.userName,
-        passWord: userInfo.passWord
+        passWord: userInfo.passWord,
+        checked: userInfo.checked === 'true' ? true : false
       });
     });
   }  
