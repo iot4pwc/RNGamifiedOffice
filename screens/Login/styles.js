@@ -13,7 +13,7 @@ export default styles = StyleSheet.create({
     marginTop: height / 25
   },
   prompt: {
-    flex: 0.2,
+    flex: 0.1,
     fontSize: 20,
     fontWeight: 'bold',
     marginLeft: width / 10,
@@ -22,7 +22,14 @@ export default styles = StyleSheet.create({
     textAlign: 'center'
   },
   login: {
-    flex: 0.5,
+    flex: 0.6,
     marginTop: height / 25,
+  },
+  checkboxText: {
+    color: '#86939e',
+    fontSize: 16
+  },
+  checkboxBorder: {
+    borderColor: 'transparent'
   }
 });

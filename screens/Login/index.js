@@ -1,6 +1,7 @@
 import actions from '../../actions/Login';
 import AnchorButton from '../../components/AnchorButton';
 import { bindActionCreators } from 'redux';
+import { CheckBox } from 'react-native-elements';
 import { CHECKIN_COLOR } from '../../constants/Common';
 import { connect } from 'react-redux';
 import Logo from '../../constants/Logo';
@@ -15,7 +16,8 @@ class Login extends React.Component {
     super(props);
     this.state = {
       passWord: '',
-      userName: ''
+      userName: '',
+      checked: false
     };
   }
 
@@ -49,11 +51,18 @@ class Login extends React.Component {
     })
   }
 
+  _handleCheck = () => {
+    this.setState({
+      ...this.state,
+      checked: !this.state.checked
+    });
+  }
+
   _login = () => {
     const { login } = this.props;
-    const { passWord, userName } = this.state;
+    const { passWord, userName, checked } = this.state;
 
-    login(userName, passWord);
+    login(userName, passWord, checked);
   }
 
   render() {
@@ -84,10 +93,17 @@ class Login extends React.Component {
               onChangeText={(newContent) => this._updateText('passWord', newContent)}
               secureTextEntry={true}
               refFunc={(ref) => {this.formRefs[1] = ref}}
-            />        
+            />
+            <CheckBox
+              title='REMEMBER ME?'
+              textStyle={styles.checkboxText}
+              containerStyle={styles.checkboxBorder}
+              checked={this.state.checked}
+              onPress={this._handleCheck}
+            />
           </View>
         </View>
-        <View style={{flex: 0.1}}>
+        <View style={{flex: 0.1}}>    
           <Button
             onPress={this._login}
             title="LOG IN"

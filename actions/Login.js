@@ -11,7 +11,7 @@ const fetchUserInfo = () => {
 	}
 }
 
-const login = (userName, passWord) => {
+const login = (userName, passWord, checked) => {
 	return (dispatch, getState) => {
 		const payload = {
 			username: userName,
@@ -23,8 +23,10 @@ const login = (userName, passWord) => {
 			errorAlert('Unable to login to the account', 'Please try again.');			
 		}).then(response => {
 			if (response.status === 200) {
+				userName = checked? userName : '';
+				passWord = checked? passWord : '';
 				setItem(UserInfo.userName, userName);
-				setItem(UserInfo.passWord, passWord);
+				setItem(UserInfo.passWord, passWord);					
 				dispatch(NavigationActions.navigate({ routeName: 'Game' }));
 			}
 		});		
