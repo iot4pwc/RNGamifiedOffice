@@ -4,7 +4,7 @@ import { loadItems, setItem } from '../lib/AsyncRestorer';
 import { asyncGet, asyncPost } from '../lib/AjaxCallWrapper';
 import { Alert } from 'react-native';
 
-const fetchProfile = () => {
+const fetchProfile = (callback = {}) => {
 	return (dispatch, getState) => {
 		const { userName } = getState().Login;
 		const endpoint = `${userName}/profile`;
