@@ -22,12 +22,18 @@ class Status extends React.Component {
     ),
   }
 
+  componentWillMount = () => {
+    const { fetchRanking, fetchRecentActivity } = this.props;
+    
+  }
+
   render() {
+    const { name } = this.props
     return (
-      <ScrollView style={styles.container}>
+      <View style={styles.container}>
         <View style={styles.promptBanner}>
           <Text style={styles.prompt}>
-            {`Hello ${this.props.name}!`}
+            {name ? `Hello ${name}!`: 'Hey there!'}
           </Text>
           <Image
             resizeMode="cover"
@@ -35,15 +41,20 @@ class Status extends React.Component {
             source={{uri: this.props.profileImage}}
           />
         </View>
-        <Tile
-           imageSrc={{uri: Ranking}}
-           title="Click to see your result"
-        />
-        <Tile
-           imageSrc={{uri: Activities}}
-           title="Click to see your result"
-        />
-      </ScrollView>
+        <View style={styles.overallRanking}>
+          <Tile
+            imageSrc={{uri: Ranking}}
+            title="Click to see your result"
+            featured
+          />
+          <Tile
+            style={styles.overallRanking}
+            imageSrc={{uri: Activities}}
+            title="Click to see your result"
+            featured
+          />        
+        </View>
+      </View>
     );
   }
 }

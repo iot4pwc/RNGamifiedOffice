@@ -7,7 +7,7 @@ export default styles = StyleSheet.create({
     backgroundColor: '#F5FCFF',
   },
   promptBanner: {
-  	flex: 0.2,
+  	flex: 0.07,
   	flexDirection: 'row',
   	marginLeft: 20,
   	marginRight: 20,
@@ -16,18 +16,19 @@ export default styles = StyleSheet.create({
     justifyContent: 'center'
   },
   prompt: {
-  	flex: 0.9,
+  	flex: 0.8,
   	fontSize: 22,
   	fontWeight: 'bold'
   },
   avartar: {
     borderColor: 'black',
     borderRadius: 100,
-    borderWidth: 0.25,
+    flex: 0.2,
     height: width / 6,
     width: width / 6
   },
   overallRanking: {
-  	marginTop: 15,  	
+  	flex: 0.93,
+  	marginTop: 15,
   }
 });
