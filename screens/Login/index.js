@@ -28,7 +28,6 @@ class Login extends React.Component {
     
     const userInfoP = fetchUserInfo();
     userInfoP.then(userInfo => {
-      console.log(userInfo);
       this.setState({
         userName: userInfo.userName,
         passWord: userInfo.passWord,

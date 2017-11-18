@@ -9,9 +9,49 @@ export default BACKEND_HEADER;
 export const CHECKIN_COLOR = '#b94a48';
 export const HOST_CHECKIN_COLOR = '#3a87ad';
 
+export const PHOTO_NUM = 100;
+
 const UserInfoPrefix = '@UserInfo:';
 export const UserInfo = {
 	userName: `${UserInfoPrefix}userName`,
 	passWord: `${UserInfoPrefix}passWord`,
 	checked: `${UserInfoPrefix}checked`
 }
+
+const ProfilePrefix = '@Profile:';
+export const Profile = {
+	age: `${UserInfoPrefix}age`,
+	alias: `${UserInfoPrefix}alias`,
+	email: `${UserInfoPrefix}email`,
+	name: `${UserInfoPrefix}name`,
+	profileImage: `${UserInfoPrefix}profileImage`
+}
+
+export const ProfileAttributesList = [
+	'name',
+	'alias',
+	'email',
+	'age'
+];
+
+export const KeyboardTypeMap = {
+	name: 'default',
+	alias: 'default',
+	email: 'email-address',
+	age: 'numeric'
+}
+
+export const ProfilePlaceholderMap = {
+	name: 'e.g. Andrew',
+	alias: 'e.g. anonymous unicorn',
+	email: 'e.g. andrew@cmu.edu',
+	age: 'e.g. 55'
+}
+
+export const DBProfileAttrMap = {
+	name: 'NAME',
+	alias: 'ALIAS',
+	email: 'EMAIL',
+	age: 'AGE',
+}
+

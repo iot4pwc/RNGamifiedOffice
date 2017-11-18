@@ -1,15 +1,28 @@
-import { StyleSheet } from 'react-native';
+import { Dimensions, StyleSheet } from 'react-native';
+const { width } = Dimensions.get('window');
 
 export default styles = StyleSheet.create({
+  avartar: {
+    width: width,
+    height: width
+  },
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
+    backgroundColor: '#F5FCFF'
   },
-  welcome: {
-    fontSize: 20,
-    textAlign: 'center',
-    margin: 10,
+  modalContainer: {
+    flex: 1
+  },
+  scrollImage: {
+    width: width / 3,
+    height: width / 3
+  },
+  scrollView: {
+    flexWrap: 'wrap',
+    flexDirection: 'row'
+  },
+  formField: {
+    marginBottom: 25,
+    marginTop: 10
   }
 });

@@ -3,7 +3,7 @@ export const LOGIN_ACTIONS = {
 }
 
 export const PROFILE_ACTIONS = {
-
+	UPDATE_PROFILE: 'UPDATE_PROFILE'
 }
 
 export const RANKING_ACTIONS = {
