@@ -23,6 +23,11 @@ const login = (userName, passWord, checked) => {
 			errorAlert('Unable to login to the account', 'Please try again.');			
 		}).then(response => {
 			if (response.status === 200) {
+				dispatch({
+					type: LOGIN_ACTIONS.LOGIN,
+					userName: userName
+				});
+				
 				userName = checked? userName : '';
 				passWord = checked? passWord : '';
 

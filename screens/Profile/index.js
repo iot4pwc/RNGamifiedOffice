@@ -55,9 +55,7 @@ class Profile extends React.Component {
   formRefs = {};
 
   componentWillMount = () => {
-    const { fetchProfile } = this.props;
-
-    fetchProfile();
+    this.props.fetchProfile();
     this._getPhotos();
   }
 

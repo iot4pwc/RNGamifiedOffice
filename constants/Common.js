@@ -30,8 +30,8 @@ export const Profile = {
 export const ProfileAttributesList = [
 	'name',
 	'alias',
-	'email',
-	'age'
+	// 'email',
+	// 'age'
 ];
 
 export const KeyboardTypeMap = {
