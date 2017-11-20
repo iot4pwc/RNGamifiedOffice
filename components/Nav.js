@@ -1,3 +1,4 @@
+import Challenge from '../screens/Challenge';
 import Status from '../screens/Status';
 import Login from '../screens/Login';
 import Profile from '../screens/Profile';
@@ -27,16 +28,19 @@ tabNavigator = TabNavigator({
 
 export const RootNavigator = StackNavigator({
   Login: {
-      screen: Login,
-      navigationOptions: {
-        header: null
-      }
+    screen: Login,
+    navigationOptions: {
+      header: null
+    }
+  },
+  Challenge: {
+    screen: Challenge
   },
   Game: {
-      screen: tabNavigator,
-      navigationOptions: {
-        header: null
-      }
+    screen: tabNavigator,
+    navigationOptions: {
+      header: null
+    }
   }  
 }, {
     headerMode: 'screen',

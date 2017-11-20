@@ -5,9 +5,8 @@ import { STATUS_ACTIONS } from '../constants/ActionTypes';
 const fetchRanking = () => {
 	return (dispatch, getState) => {
 		const { userName } = getState().Login;
-		// const { challengeId } = getState().Challenge;
-		// TODO: change challengID
-		const challengeId = '123';
+		const { challengeId } = getState().Status;
+		
 		let endpoint = `${challengeId}/${userName}/getRanking`;
 		asyncGet(endpoint, {}, {}).then(response => {
 			if (response.status === 200) {

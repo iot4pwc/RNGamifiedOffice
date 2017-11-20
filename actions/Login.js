@@ -23,18 +23,19 @@ const login = (userName, passWord, checked) => {
 			errorAlert('Unable to login to the account', 'Please try again.');			
 		}).then(response => {
 			if (response.status === 200) {
-				dispatch({
+				response.json().then(challenges => dispatch({
 					type: LOGIN_ACTIONS.LOGIN,
-					userName: userName
-				});
+					userName: userName,
+					challenges: challenges.all_challenges
+				}));
 				
 				userName = checked? userName : '';
 				passWord = checked? passWord : '';
 
 				setItem(UserInfo.userName, userName);
 				setItem(UserInfo.passWord, passWord);
-				setItem(UserInfo.checked, checked ? 'true' : 'false');
-				dispatch(NavigationActions.navigate({ routeName: 'Game' }));
+				setItem(UserInfo.checked, checked ? 'true' : 'false');			
+				dispatch(NavigationActions.navigate({ routeName: 'Challenge' }));
 			}
 		});
 	}

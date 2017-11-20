@@ -1,6 +1,7 @@
 import { STATUS_ACTIONS } from '../constants/ActionTypes';
 
 const initialState = {
+	challengeId: '',
 	fullActivities: {},
 	personalRank: {},
 	recentActivity: {},
@@ -32,7 +33,13 @@ export const Status = (state = initialState, action) => {
 				...state,
 				recentActivity: action.recentActivity
 			}
-		}		
+		}
+		case STATUS_ACTIONS.UPDATE_CHALLENGE: {
+			return {
+				...state,
+				challengeId: action.challengeId
+			}
+		}
 		default: {
 			return {
 				...state
