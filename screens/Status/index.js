@@ -7,7 +7,7 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import PropTypes from 'prop-types';
 import React from 'react';
 import styles from './styles'
-import { Tile } from 'react-native-elements';
+import { Divider, Tile } from 'react-native-elements';
 import { Image, Modal, ScrollView, Text, View } from 'react-native';
 
 class Status extends React.Component {
@@ -54,9 +54,14 @@ class Status extends React.Component {
 
   render() {
     const { name } = this.props
-    const { navigate, personalRank, totalRank, recentActivity } = this.props;
+    const {
+      navigate,
+      personalRank,
+      totalRank,
+      recentActivity
+    } = this.props;
     const percentage = 1 - personalRank.rank / totalRank.length;
-    // TODO: modify to accomodate all score
+    const sortedRank = totalRank.slice().sort((a, b) => a.rank - b.rank);
 
     return (
       <View style={styles.container}>
@@ -95,6 +100,53 @@ class Status extends React.Component {
           visible={this.state.isRankModalOn}
           onRequestClose={this._toggleModal('rank')}
         >
+          <ScrollView style={styles.rankingContainer}>
+            <View style={styles.rankingContent}>
+              <View style={styles.columnHeader}>
+                <View style={styles.columnContainer}>
+                <Text style={styles.column}>
+                  RANK
+                </Text>
+                </View>
+                <View style={styles.columnContainer}>
+                <Text style={styles.column}>
+                  ALIAS
+                </Text>
+                </View>
+                <View style={styles.columnContainer}>
+                <Text style={styles.column}>
+                  TOTAL
+                </Text>
+                </View>
+              </View>
+              <Divider style={styles.divider} />
+              <View style={styles.tableContainer}>
+              {
+                sortedRank.map((entry, idx) => {
+                  return (
+                    <View key={idx} style={styles.columnHeader}>
+                      <View style={styles.columnContainer}>
+                      <Text style={styles.column}>
+                        {entry.rank}
+                      </Text>
+                      </View>
+                      <View style={styles.columnContainer}>
+                      <Text style={styles.column}>
+                        {entry.alias}
+                      </Text>
+                      </View>
+                      <View style={styles.columnContainer}>
+                      <Text style={styles.column}>
+                        {entry.total_score}
+                      </Text>
+                      </View>
+                    </View>
+                  );
+                })
+              }
+              </View>
+            </View>
+          </ScrollView>
         </Modal>
         <Modal
           animationType={"slide"}
@@ -102,6 +154,12 @@ class Status extends React.Component {
           visible={this.state.isActivityModalOn}
           onRequestClose={this._toggleModal('activity')}
         >
+          <ScrollView style={styles.activitiesContainer}>
+            <View style={styles.activitiesContent}>
+              <Text>
+              </Text>
+            </View>
+          </ScrollView>        
         </Modal>        
       </View>
     );

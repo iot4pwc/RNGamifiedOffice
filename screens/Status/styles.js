@@ -30,5 +30,66 @@ export default styles = StyleSheet.create({
   overallRanking: {
   	flex: 0.93,
   	marginTop: 15,
+  },
+  rankingHeader: {
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+    flex: 0.1,
+    justifyContent: 'center',
+    paddingBottom: 15,
+    paddingTop: 15
+  },
+  activitiesHeader: {
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+    flex: 0.1,
+    justifyContent: 'center',
+    paddingBottom: 15,
+    paddingTop: 15
+  },  
+  headerText: {
+    color: 'grey',
+    fontSize: 20,
+    fontWeight: 'bold'
+  },
+  rankingContent: {
+    backgroundColor: 'powderblue',
+    marginTop: 10
+  },
+  activitiesContent: {
+    backgroundColor: 'mistyrose',
+    marginTop: 10  
+  },
+  rankingContainer: {
+    flex: 1,
+    backgroundColor: 'powderblue',
+  },
+  activitiesContainer: {
+    flex: 1,
+    backgroundColor: 'mistyrose',
+  },
+  column: {
+    fontWeight:'bold',
+    fontSize: 18,
+    color: 'white',
+    paddingBottom: 10
+  },
+  columnHeader: {
+    flex: 0.1,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  divider: {
+    height: 3,
+  },
+  columnContainer: {
+    flex: 0.333,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  tableContainer: {
+    flex: 0.9,
+    paddingTop: 10
   }
 });
