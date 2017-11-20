@@ -9,6 +9,14 @@ import React from 'react';
 import styles from './styles'
 import { Divider, Tile } from 'react-native-elements';
 import { Image, Modal, ScrollView, Text, View } from 'react-native';
+import {
+  ActivitiesBreakdown,
+  ActivitiesAttrList,
+  ActivitiesDisplayNameMap,
+  RankingAttrList,
+  RankingDisplayNameMap,
+  ScoreDisplayNameMap
+} from '../../constants/Common';
 
 class Status extends React.Component {
   static navigationOptions = {
@@ -52,9 +60,18 @@ class Status extends React.Component {
     }
   }
 
+  _getScoreSummary = (currentActivity) => {
+    const summary = ActivitiesBreakdown.reduce((ret, activity) => {
+      return ret + ScoreDisplayNameMap[activity] + `: ${currentActivity[activity]}\n`;
+    }, '');
+
+    return summary;
+  }
+
   render() {
     const { name } = this.props
     const {
+      fullActivities,
       navigate,
       personalRank,
       totalRank,
@@ -89,9 +106,7 @@ class Status extends React.Component {
             imageSrc={{uri: Activities}}
             onPress={this._toggleModal('activity')}
             style={styles.overallRanking}
-            title={
-              `Today's total score: ${recentActivity.total_score}\nWater intake score: ${recentActivity.water_intake_score}\nSitting score: ${recentActivity.sitting_score}`
-            }
+            title={`Today:\n${this._getScoreSummary(recentActivity)}`}
           />        
         </View>
         <Modal
@@ -103,21 +118,15 @@ class Status extends React.Component {
           <ScrollView style={styles.rankingContainer}>
             <View style={styles.rankingContent}>
               <View style={styles.columnHeader}>
-                <View style={styles.columnContainer}>
-                <Text style={styles.column}>
-                  RANK
-                </Text>
-                </View>
-                <View style={styles.columnContainer}>
-                <Text style={styles.column}>
-                  ALIAS
-                </Text>
-                </View>
-                <View style={styles.columnContainer}>
-                <Text style={styles.column}>
-                  TOTAL
-                </Text>
-                </View>
+                {
+                  RankingAttrList.map((attr, idx) => (
+                    <View key={idx} style={styles.columnContainer}>
+                      <Text style={styles.column}>
+                        {RankingDisplayNameMap[attr]}
+                      </Text>
+                    </View>                    
+                  ))
+                }
               </View>
               <Divider style={styles.divider} />
               <View style={styles.tableContainer}>
@@ -125,21 +134,15 @@ class Status extends React.Component {
                 sortedRank.map((entry, idx) => {
                   return (
                     <View key={idx} style={styles.columnHeader}>
-                      <View style={styles.columnContainer}>
-                      <Text style={styles.column}>
-                        {entry.rank}
-                      </Text>
-                      </View>
-                      <View style={styles.columnContainer}>
-                      <Text style={styles.column}>
-                        {entry.alias}
-                      </Text>
-                      </View>
-                      <View style={styles.columnContainer}>
-                      <Text style={styles.column}>
-                        {entry.total_score}
-                      </Text>
-                      </View>
+                      {
+                        RankingAttrList.map((attr, idx) => (
+                          <View key={attr + idx} style={styles.columnContainer}>
+                            <Text style={styles.column}>
+                              {entry[attr]}
+                            </Text>
+                          </View>
+                        ))
+                      }
                     </View>
                   );
                 })
@@ -156,8 +159,15 @@ class Status extends React.Component {
         >
           <ScrollView style={styles.activitiesContainer}>
             <View style={styles.activitiesContent}>
-              <Text>
-              </Text>
+              {
+                ActivitiesAttrList.map((period, idx) => Object.keys(fullActivities).length !== 0 && (
+                  <View key={idx} style={styles.activityContainer}>
+                    <Text style={styles.activityText}>
+                      {`${ActivitiesDisplayNameMap[period]}:\n${this._getScoreSummary(fullActivities[period])}`}
+                    </Text>
+                  </View>
+                ))
+              }
             </View>
           </ScrollView>        
         </Modal>        

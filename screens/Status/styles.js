@@ -1,5 +1,5 @@
 import { Dimensions, StyleSheet } from 'react-native';
-const { width } = Dimensions.get('window');
+const { height, width } = Dimensions.get('window');
 
 export default styles = StyleSheet.create({
   container: {
@@ -31,34 +31,13 @@ export default styles = StyleSheet.create({
   	flex: 0.93,
   	marginTop: 15,
   },
-  rankingHeader: {
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-    flex: 0.1,
-    justifyContent: 'center',
-    paddingBottom: 15,
-    paddingTop: 15
-  },
-  activitiesHeader: {
-    alignItems: 'center',
-    backgroundColor: '#F5FCFF',
-    flex: 0.1,
-    justifyContent: 'center',
-    paddingBottom: 15,
-    paddingTop: 15
-  },  
-  headerText: {
-    color: 'grey',
-    fontSize: 20,
-    fontWeight: 'bold'
-  },
   rankingContent: {
     backgroundColor: 'powderblue',
     marginTop: 10
   },
   activitiesContent: {
-    backgroundColor: 'mistyrose',
-    marginTop: 10  
+    backgroundColor: 'pink',
+    marginTop: height / 8
   },
   rankingContainer: {
     flex: 1,
@@ -66,7 +45,7 @@ export default styles = StyleSheet.create({
   },
   activitiesContainer: {
     flex: 1,
-    backgroundColor: 'mistyrose',
+    backgroundColor: 'pink',
   },
   column: {
     fontWeight:'bold',
@@ -82,6 +61,7 @@ export default styles = StyleSheet.create({
   },
   divider: {
     height: 3,
+    backgroundColor: 'white'
   },
   columnContainer: {
     flex: 0.333,
@@ -91,5 +71,16 @@ export default styles = StyleSheet.create({
   tableContainer: {
     flex: 0.9,
     paddingTop: 10
+  },
+  activityText: {
+    fontSize: 22,
+    fontWeight: 'bold',
+    color: 'white',
+    textAlign: 'left'
+  },
+  activityContainer: {
+    marginBottom: 20,
+    marginLeft: 30,
+    marginRight: 30,
   }
 });

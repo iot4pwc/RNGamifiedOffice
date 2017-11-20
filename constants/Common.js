@@ -54,3 +54,41 @@ export const DBProfileAttrMap = {
 	email: 'EMAIL',
 	age: 'AGE',
 }
+
+export const RankingAttrList = [
+	'rank',
+	'alias',
+	'total_score'
+]
+
+export const RankingDisplayNameMap = {
+	'rank': 'RANK',
+	'alias': 'ALIAS',
+	'total_score': 'TOTAL'
+}
+
+export const ActivitiesAttrList = [
+	'today',
+	'yesterday',
+	'last_week',
+	'last_month',
+]
+
+export const ActivitiesDisplayNameMap = {
+	today: 'Today',
+	yesterday: 'Yesterday',
+	last_week: 'Last week',
+	last_month: 'Last month',
+}
+
+export const ActivitiesBreakdown = [
+	'total_score',
+	'sitting_score',
+	'water_intake_score'
+]
+
+export const ScoreDisplayNameMap = {
+	total_score: 'Total score',
+	water_intake_score: 'Water intake score',
+	sitting_score: 'Sitting score'
+}
