@@ -1,3 +1,4 @@
+import { NavigationActions } from 'react-navigation';
 import { PROFILE_ACTIONS } from '../constants/ActionTypes';
 import { Profile } from '../constants/Common';
 import { loadItems, setItem } from '../lib/AsyncRestorer';

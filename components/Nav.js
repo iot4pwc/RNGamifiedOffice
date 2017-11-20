@@ -1,28 +1,14 @@
 import Status from '../screens/Status';
-import Timeline from '../screens/Timeline';
-import Ranking from '../screens/Ranking';
 import Login from '../screens/Login';
 import Profile from '../screens/Profile';
 import { StackNavigator, TabNavigator } from 'react-navigation';
 
-stackNavigator = StackNavigator({
-  Status: {
+tabNavigator = TabNavigator({
+  Home: {
     screen: Status,
     navigationOptions: {
       header: null
-    }    
-  },
-  Ranking: {
-    screen: Ranking
-  },
-  Timeline: {
-    screen: Timeline
-  },  
-});
-
-tabNavigator = TabNavigator({
-  Home: {
-    screen: stackNavigator,
+    }
   },
   Profile: {
     screen: Profile,

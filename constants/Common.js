@@ -54,4 +54,3 @@ export const DBProfileAttrMap = {
 	email: 'EMAIL',
 	age: 'AGE',
 }
-

@@ -42,5 +42,5 @@ const login = (userName, passWord, checked) => {
 
 export default {
 	fetchUserInfo,
-	login
+	login,
 }
