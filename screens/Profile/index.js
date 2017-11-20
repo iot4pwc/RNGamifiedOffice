@@ -191,7 +191,7 @@ Profile.propTypes = {
 
 const mapStateToProps = (state) => ({
   ...state.Profile,
-  isThisTabClosed: state.Nav.routes[1].index !== 1
+  isThisTabClosed: state.Nav.index === 2 && state.Nav.routes[2].index !== 1
 });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators(actions, dispatch);

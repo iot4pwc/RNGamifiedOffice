@@ -17,10 +17,7 @@ class App extends React.Component {
     const { dispatch, Nav } = this.props;
     if (Nav.index === 0) {
       return false;
-    }
-    if (Nav.routes[1].routes[0].index === 0 && Nav.routes[1].index === 0) {
-      return true;
-    }    
+    }  
     dispatch(NavigationActions.back());
     return true;
   };  
