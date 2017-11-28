@@ -31,7 +31,7 @@ export const ProfileAttributesList = [
 	'name',
 	'alias',
 	// 'email',
-	// 'age'
+	'age'
 ];
 
 export const KeyboardTypeMap = {
@@ -83,12 +83,12 @@ export const ActivitiesDisplayNameMap = {
 
 export const ActivitiesBreakdown = [
 	'total_score',
-	'sitting_score',
-	'water_intake_score'
+	'SITTING_DURATION',
+	'WATER_INTAKE'
 ]
 
 export const ScoreDisplayNameMap = {
 	total_score: 'Total score',
-	water_intake_score: 'Water intake score',
-	sitting_score: 'Sitting score'
+	WATER_INTAKE: 'Water intake score',
+	SITTING_DURATION: 'Sitting score'
 }

@@ -29,11 +29,13 @@ const fetchRanking = () => {
 const fetchActivity = () => {
 	return (dispatch, getState) => {
 		const { userName } = getState().Login;
+		const { challengeId } = getState().Status;
+
 		let endpoint = `${userName}/getRecentStats`;
 		asyncGet(endpoint, {}, {}).then(response => {
 			if (response.status === 200) {
 				response.json().then(recentActivity => {
-					dispatch(updateRecentActivity(recentActivity));
+					dispatch(updateRecentActivity(recentActivity[challengeId]));
 				})
 			}
 		});
@@ -41,7 +43,7 @@ const fetchActivity = () => {
 		asyncGet(endpoint, {}, {}).then(response => {
 			if (response.status === 200) {
 				response.json().then(fullActivities => {
-					dispatch(updateFullActivities(fullActivities));
+					dispatch(updateFullActivities(fullActivities[challengeId]));
 				})
 			}
 		});		

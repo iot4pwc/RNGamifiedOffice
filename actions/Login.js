@@ -20,7 +20,7 @@ const login = (userName, passWord, checked) => {
 
 		const endpoint = `${userName}/login`;
 		asyncPost(endpoint, payload, () => {
-			errorAlert('Unable to login to the account', 'Please try again.');			
+			errorAlert('Unable to Login to the Account', 'Please try again.');
 		}).then(response => {
 			if (response.status === 200) {
 				response.json().then(challenges => dispatch({
@@ -36,6 +36,8 @@ const login = (userName, passWord, checked) => {
 				setItem(UserInfo.passWord, passWord);
 				setItem(UserInfo.checked, checked ? 'true' : 'false');			
 				dispatch(NavigationActions.navigate({ routeName: 'Challenge' }));
+			} else {
+				errorAlert('Invalid Username or Password', 'Please try again with correct information.');
 			}
 		});
 	}
