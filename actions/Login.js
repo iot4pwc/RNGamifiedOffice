@@ -29,11 +29,11 @@ const login = (userName, passWord, checked) => {
 					challenges: challenges.all_challenges
 				}));
 				
-				userName = checked? userName : '';
-				passWord = checked? passWord : '';
+				userNameToStore = checked? userName : '';
+				passWordToStore = checked? passWord : '';
 
-				setItem(UserInfo.userName, userName);
-				setItem(UserInfo.passWord, passWord);
+				setItem(UserInfo.userName, userNameToStore);
+				setItem(UserInfo.passWord, passWordToStore);
 				setItem(UserInfo.checked, checked ? 'true' : 'false');			
 				dispatch(NavigationActions.navigate({ routeName: 'Challenge' }));
 			} else {

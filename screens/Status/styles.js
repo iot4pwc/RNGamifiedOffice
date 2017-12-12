@@ -49,7 +49,7 @@ export default styles = StyleSheet.create({
   },
   column: {
     fontWeight:'bold',
-    fontSize: 18,
+    fontSize: 14,
     color: 'white',
     paddingBottom: 10
   },

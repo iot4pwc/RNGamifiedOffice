@@ -44,6 +44,14 @@ class Status extends React.Component {
     fetchActivity(); 
   }
 
+  componentWillReceiveProps = (nextProps) => {
+    if (nextProps.isThisScreenOn !== this.props.isThisScreenOn) {
+      const { fetchRanking, fetchActivity } = this.props;
+      fetchRanking();
+      fetchActivity();
+    }
+  }
+
   _toggleModal = (modal) => {
     return () => {
       if (modal === 'rank') {
@@ -62,7 +70,7 @@ class Status extends React.Component {
 
   _getScoreSummary = (currentActivity) => {
     const summary = ActivitiesBreakdown.reduce((ret, activity) => {
-      return ret + ScoreDisplayNameMap[activity] + `: ${currentActivity[activity]}\n`;
+      return ret + ScoreDisplayNameMap[activity] + `: ${parseFloat(currentActivity[activity]).toFixed(2)}\n`;
     }, '');
 
     return summary;
@@ -77,7 +85,7 @@ class Status extends React.Component {
       totalRank,
       recentActivity
     } = this.props;
-    const percentage = 1 - personalRank.rank / totalRank.length;
+    const percentage = (1 - personalRank.rank / totalRank.length).toFixed(2);
     const sortedRank = totalRank.slice().sort((a, b) => a.rank - b.rank);
 
     return (
@@ -177,6 +185,7 @@ class Status extends React.Component {
 }
 
 Status.propTypes = {
+  isThisScreenOn: PropTypes.bool.isRequired,
   fetchActivity: PropTypes.func.isRequired,
   fetchRanking: PropTypes.func.isRequired,
   fullActivities: PropTypes.object.isRequired,
@@ -190,7 +199,8 @@ Status.propTypes = {
 
 const mapStateToProps = (state) => ({
   ...state.Status,
-  ...state.Profile
+  ...state.Profile,
+  isThisScreenOn: state.Nav.index === 2 && state.Nav.routes[2].index === 0
 });
 
 const mapDispatchToProps = (dispatch) => bindActionCreators(actions, dispatch);
